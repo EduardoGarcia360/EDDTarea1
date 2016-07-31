@@ -8,8 +8,13 @@
 int main()
 {
     LISTA* lista = (LISTA*)malloc(sizeof(LISTA));
-    agregar("martha",lista);
-    agregar("amigos",lista);
+    agregar("hola",lista);
+    agregar("mundo",lista);
+    agregar("jaja",lista);
+    agregar("xD",lista);
+    agregar("cel",lista);
+    mostrar(lista);
+    eliminar("xD",lista);
     mostrar(lista);
     return 0;
 }

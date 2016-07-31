@@ -27,3 +27,29 @@ void mostrar(LISTA* lista){
         actual=actual->siguiente;
     }
 }
+
+void eliminar(char* cadena, LISTA* lista){
+    if(lista->primero == NULL){ //si la lista no tiene nada
+        printf("lista vacia.\n");
+    }else{// si la lista tiene al menos un nodo
+
+        NODO* aux = lista->primero;
+        if(aux->datos == cadena){ //verificamos si es el primero
+            free(lista->primero);
+            lista->primero = NULL;
+        }else{
+            NODO* temporal = aux->siguiente;
+            while(temporal != NULL && temporal->datos != cadena){
+                aux = aux->siguiente;
+                temporal = temporal->siguiente;
+            }
+            if(temporal->datos == NULL){
+                printf("el dato no existe en esta lista.\n");
+            }else{
+                aux->siguiente = temporal->siguiente;
+                free(temporal);
+            }
+        }
+
+    }
+}
