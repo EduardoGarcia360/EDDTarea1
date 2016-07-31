@@ -39,11 +39,11 @@ void eliminar(char* cadena, LISTA* lista){
             lista->primero = NULL;
         }else{
             NODO* temporal = aux->siguiente;
-            while(temporal != NULL && temporal->datos != cadena){
+            while(temporal->siguiente != NULL && temporal->datos != cadena){
                 aux = aux->siguiente;
                 temporal = temporal->siguiente;
             }
-            if(temporal->datos == NULL){
+            if(temporal->datos != cadena){
                 printf("el dato no existe en esta lista.\n");
             }else{
                 aux->siguiente = temporal->siguiente;
@@ -51,5 +51,21 @@ void eliminar(char* cadena, LISTA* lista){
             }
         }
 
+    }
+}
+
+void modificar(char* cadena, char* nueva, LISTA* lista){
+    if(lista->primero==NULL){
+        printf("lista vacia.\n");
+    }else{
+        NODO* aux = lista->primero;
+        while(aux->datos != cadena && aux->siguiente != NULL){
+            aux = aux->siguiente;
+        }
+        if(aux->datos != cadena){
+            printf("el dato %s no existe en esta lista.\n",cadena);
+        }else{
+            aux->datos = nueva;
+        }
     }
 }

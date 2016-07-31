@@ -13,8 +13,10 @@ int main()
     agregar("jaja",lista);
     agregar("xD",lista);
     agregar("cel",lista);
+    agregar("loli",lista);
     mostrar(lista);
-    eliminar("xD",lista);
+    //eliminar("pachon",lista);
+    modificar("loli","pachon",lista);
     mostrar(lista);
     return 0;
 }
